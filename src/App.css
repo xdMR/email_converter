@@ -5,12 +5,12 @@
   --linkHover: rgb(223 119 254);
 }
 
-body{
+body {
   background-color: rgb(232, 241, 250);
   color: rgb(20, 20, 21);
   background-color: var(--bgColor);
 }
-.converter{
+.converter {
   /* width: min(80%, max(320px, 100vw)); */
   width: 80%;
   margin: 0 auto;
@@ -20,8 +20,7 @@ body{
   align-items: center;
 }
 
-
-.textarea{
+.textarea {
   min-height: 50vh;
   padding: 20px 20px;
   box-sizing: border-box;
@@ -29,39 +28,54 @@ body{
   background-color: #171717;
   font-size: 16px;
   resize: none;
-  color:rgb(216, 233, 239);
+  color: rgb(216, 233, 239);
   border-radius: 20px;
   -webkit-box-shadow: 5px 5px 15px 5px #00000048;
-box-shadow: 5px 5px 15px 5px #00000048;
-overflow-y:auto;
+  box-shadow: 5px 5px 15px 5px #00000048;
+  overflow-y: auto;
 }
-.textarea:focus{
+.textarea:focus {
   outline: none;
   outline: 1 solid var(--linkColor);
 
   border-color: var(--linkColor);
   box-shadow: 0 0 5px var(--linkColor);
 }
+.htmlBox {
+  max-height: 20vh;
+  font-size: 8px;
+  padding: 20px 20px;
+  box-sizing: border-box;
+  border: 1px solid var(--mainBorderColor);
+  background-color: #171717;
+  font-size: 16px;
+  resize: none;
+  color: rgb(38, 67, 31);
+  border-radius: 20px;
+  -webkit-box-shadow: 5px 5px 15px 5px #00000048;
+  box-shadow: 5px 5px 15px 5px #00000048;
+  overflow-y: auto;
+}
 
-.menu{
+.menu {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-.menu > *{
-  color:white;
+.menu > * {
+  color: white;
   list-style: none;
   flex: 1;
   margin: 5px;
   padding-bottom: 15px;
 }
-.menu > *:hover{
+.menu > *:hover {
   text-decoration: none;
   padding-bottom: 10px;
   border-bottom: 5px solid var(--linkColor);
 }
 
-.panel{
+.panel {
   width: 100%;
   height: 100%;
   display: flex;
@@ -73,22 +87,21 @@ overflow-y:auto;
   .panel {
     flex-direction: column;
   }
-  .textarea{
+  .textarea {
     width: 100%;
   }
-  .markdownBox{
+  .markdownBox {
     width: 100%;
   }
-
 }
 
-.panel > *{
+.panel > * {
   flex: 1;
   margin: 5px;
   padding-bottom: 15px;
 }
 
-.markdownBox{
+.markdownBox {
   background-color: white;
   min-height: 50vh;
   padding: 20px 20px;
@@ -96,13 +109,13 @@ overflow-y:auto;
   border: 1px solid var(--mainBorderColor);
   font-size: 16px;
   resize: none;
-  color:rgb(19, 19, 19);
+  color: rgb(19, 19, 19);
   border-radius: 20px;
   -webkit-box-shadow: 5px 5px 15px 5px #00000048;
-box-shadow: 5px 5px 15px 5px #00000048;
-overflow-y:auto;
-max-height: 300px;
+  box-shadow: 5px 5px 15px 5px #00000048;
+  overflow-y: auto;
+  max-height: 300px;
 }
-.markdownBox:hover{
+.markdownBox:hover {
   cursor: not-allowed;
 }

@@ -1,11 +1,14 @@
-import { useState} from "react";
+import { useState, useEffect } from "react";
+
+import ReactMarkdown from "react-markdown";
+import EmailHTML from "./emailHTML";
+
 import "./App.css";
 import Converter from "./Converter";
 import Panel from "./Panel";
 import Header from "./Header";
 
-import ReactMarkdown from "react-markdown";
-import EmailHTML from "./emailHTML";
+
 
 function App() {
   const [markdownText, setMarkdownText] = useState("hi there");
@@ -14,8 +17,15 @@ function App() {
     setMarkdownText(e.target.value);
     console.log(markdownText);
   };
+  const [html, setHtml] = useState("");
 
-
+  useEffect(() => {
+    const el = document.querySelector(".markdownBox");
+    if (el) {
+      const mdHTML = el.innerHTML;
+      setHtml(mdHTML);
+    }
+  }, [markdownText]);
 
   const snippets = {
     unsubscribe: `<div style="padding:20px;">
@@ -24,9 +34,7 @@ function App() {
     <br />
     <a href="*|UPDATE_PROFILE|*" style="color:#666;">Update your preferences</a> or <a href="*|UNSUB|*" style="color:#666;">Unsubscribe *|EMAIL|* </a> from this list.</p>
     </div>`,
-
-  }
-
+  };
 
   return (
     <Converter>
@@ -40,17 +48,22 @@ function App() {
           onChange={(e) => handleChange(e)}
         ></textarea>
 
-
-
-        <ReactMarkdown   className="markdownBox" components={ EmailHTML} children={markdownText} />
-
-
-
+        <ReactMarkdown
+          className="markdownBox"
+          components={EmailHTML}
+          children={markdownText}
+        />
       </Panel>
 
-
-
-
+      <Panel>
+        <div className="htmlBox">
+          <pre>
+            <code>{html}</code>
+          </pre>
+        </div>
+      </Panel>
+      <button onClick={() => {navigator.clipboard.writeText(html)}}
+>Copy code </button>
     </Converter>
   );
 }
