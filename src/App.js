@@ -11,14 +11,16 @@ import Header from "./Header";
 
 
 function App() {
-  const [markdownText, setMarkdownText] = useState("hi there");
+  const [markdownText, setMarkdownText] = useState("here is how it looks like");
+
 
   const handleChange = (e) => {
     setMarkdownText(e.target.value);
     console.log(markdownText);
   };
-  const [html, setHtml] = useState("");
 
+
+  const [html, setHtml] = useState("");
   useEffect(() => {
     const el = document.querySelector(".markdownBox");
     if (el) {
@@ -26,6 +28,7 @@ function App() {
       setHtml(mdHTML);
     }
   }, [markdownText]);
+
 
   const snippets = {
     unsubscribe: `<div style="padding:20px;">
@@ -44,7 +47,7 @@ function App() {
         <textarea
           className="textarea"
           input={markdownText}
-          placeholder="markdown text here"
+          placeholder="type your markdown text here..."
           onChange={(e) => handleChange(e)}
         ></textarea>
 
@@ -62,7 +65,7 @@ function App() {
           </pre>
         </div>
       </Panel>
-      <button onClick={() => {navigator.clipboard.writeText(html)}}
+      <button className="btn-copy" onClick={() => {navigator.clipboard.writeText(html)}}
 >Copy code </button>
     </Converter>
   );

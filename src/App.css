@@ -1,8 +1,11 @@
 :root {
-  --bgColor: #0a0e1b;
+  --bgColor: rgb(10, 13, 25);
   --mainBorderColor: #240442;
+  --blue:#240f81;
   --linkColor: rgb(217 143 252);
-  --linkHover: rgb(223 119 254);
+  --linkHover: #df77fe;
+  --screaming-green: #6bffdc;
+  --teal: #00bcd4;
 }
 
 body {
@@ -39,7 +42,7 @@ body {
   outline: 1 solid var(--linkColor);
 
   border-color: var(--linkColor);
-  box-shadow: 0 0 5px var(--linkColor);
+  box-shadow: 0 0 3px var(--linkColor);
 }
 .htmlBox {
   max-height: 20vh;
@@ -58,6 +61,7 @@ body {
 }
 
 .menu {
+  padding-bottom: 50px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -118,4 +122,76 @@ body {
 }
 .markdownBox:hover {
   cursor: not-allowed;
+}
+
+
+
+
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  .panel * {
+    scrollbar-width: auto;
+    scrollbar-color: #d98ffc #0f152f;
+  }
+
+  /* Chrome, Edge, and Safari */
+  .panel *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  .panel *::-webkit-scrollbar-track {
+    background: #0f152f;
+  }
+
+  .panel *::-webkit-scrollbar-thumb {
+    background-color: #d98ffc;
+    border-radius: 20px;
+    border: 2px solid #0f152f;
+  }
+
+  ::-webkit-scrollbar-track-piece:decrement {
+    background-color: #240f81;
+  }
+
+  ::-webkit-scrollbar-track-piece:increment {
+    background-color: #0f152f;
+  }
+
+
+
+
+  .btn-copy {
+    background-color: var(--blue);
+    border-radius:42px;
+    display:inline-block;
+    cursor:pointer;
+    color:var(--screaming-green);
+    font-family:Arial;
+    font-size:17px;
+    padding:7px 31px;
+    text-decoration:none;
+  }
+  .btn-copy:hover {
+    color:#240f81;
+    background-color:var(--linkColor);
+  }
+  .btn-copy:active {
+    position:relative;
+    top:1px;
+  }
+
+
+
+
+  /* HEADER */
+  .lead-line {
+    padding-top:50px;
+    padding-bottom:0px;
+    font-size: 3em;
+    font-weight: 600;
+    background: linear-gradient(170deg, var(--bgColor) 0%, #ffc4f8 20%, #e28aff 50%, var(--bgColor) 110%);
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
 }
