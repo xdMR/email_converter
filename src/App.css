@@ -61,17 +61,24 @@ body {
 }
 
 .menu {
+  padding:0;
   padding-bottom: 50px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-around;
 }
 .menu > * {
-  color: white;
+  color: rgb(210, 210, 235);
+  letter-spacing: 1px;
+  font-weight: 700;
+  text-transform: uppercase;
   list-style: none;
-  flex: 1;
+  /* flex: 1; */
   margin: 5px;
   padding-bottom: 15px;
+  text-align: center;
+
 }
 .menu > *:hover {
   text-decoration: none;
@@ -120,6 +127,16 @@ body {
   overflow-y: auto;
   max-height: 300px;
 }
+
+.hide{
+  display: none;
+}
+.taller{
+  transition: all 0.5s ease-in-out;
+  min-height: 70vh;
+  max-height: none;
+}
+
 .markdownBox:hover {
   cursor: not-allowed;
 }
@@ -195,3 +212,5 @@ body {
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
 }
+
+

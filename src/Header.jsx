@@ -1,21 +1,30 @@
 import React from 'react'
 
-function Header() {
+function Header({ ShowBoxes }) {
     return (
         <div>
-            <div class="lead-line" id="lead-line">
-                 Beautiful Email Converter
+            <div className="lead-line" id="lead-line">
+                Beautiful Email Converter
             </div>
 
             <ul className='menu'>
                 <li>
-                    <a>email view</a>
+                    <a onClick={() => ShowBoxes({
+                        textarea: true,
+                        markdownBox: true,
+                    })} >SPLIT VIEW</a>
                 </li>
-                <li>
-                    <a>code</a>
+                <li onClick={() => ShowBoxes({
+                    textarea: false,
+                    markdownBox: true,
+                })}>
+                    <a>Email</a>
                 </li>
-                <li>
-                    <a>mark-up</a>
+                <li onClick={() => ShowBoxes({
+                    textarea: true,
+                    markdownBox: false,
+                })}>
+                    <a>Markdown</a>
                 </li>
             </ul>
             <div>

@@ -12,7 +12,15 @@ import Header from "./Header";
 
 function App() {
   const [markdownText, setMarkdownText] = useState("here is how it looks like");
+  const [showBoxes, setShowBoxes] = useState({
+    textarea: true,
+    markdownBox: true,
+  });
 
+
+  const ShowBoxes = (data) => {
+   setShowBoxes(data);
+  }
 
   const handleChange = (e) => {
     setMarkdownText(e.target.value);
@@ -30,29 +38,24 @@ function App() {
   }, [markdownText]);
 
 
-  const snippets = {
-    unsubscribe: `<div style="padding:20px;">
-    <p style=" background-color:transparent; color:#666; font-family:source sans pro,helvetica,arial; font-size:13px; line-height:25px;">You&#39;re receiving this email since you&#39;re a Center Centre &ndash; UIE&nbsp;subscriber.<br />
-    Copyright 2020 Center Centre Inc. All Rights Reserved.<br />
-    <br />
-    <a href="*|UPDATE_PROFILE|*" style="color:#666;">Update your preferences</a> or <a href="*|UNSUB|*" style="color:#666;">Unsubscribe *|EMAIL|* </a> from this list.</p>
-    </div>`,
-  };
-
   return (
     <Converter>
-      <Header />
+      <Header ShowBoxes={ShowBoxes} />
 
       <Panel>
         <textarea
-          className="textarea"
+            className={`textarea  ${showBoxes.textarea ? "" : "hide"}  ${showBoxes.textarea&&!showBoxes.markdownBox?"taller":""} `}
           input={markdownText}
           placeholder="type your markdown text here..."
           onChange={(e) => handleChange(e)}
         ></textarea>
 
         <ReactMarkdown
-          className="markdownBox"
+          className={`markdownBox  ${showBoxes.markdownBox ? "" : "hide"}
+          ${showBoxes.markdownBox&&!showBoxes.textarea?"taller":""}
+          `}
+
+
           components={EmailHTML}
           children={markdownText}
         />
