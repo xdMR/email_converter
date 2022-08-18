@@ -43,6 +43,7 @@ body {
 
   border-color: var(--linkColor);
   box-shadow: 0 0 3px var(--linkColor);
+  transition: all 0.5s ease-in-out;
 }
 .htmlBox {
   max-height: 20vh;
